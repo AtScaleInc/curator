@@ -322,57 +322,57 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-framework</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-framework</artifactId>
                 <type>test-jar</type>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${project.version}</version>
                 <type>test-jar</type>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-test</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-x-discovery</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-x-discovery-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.curator</groupId>
+                <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-x-async</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -547,7 +547,7 @@
                 <artifactId>clirr-maven-plugin</artifactId>
                 <configuration>
                     <includes>
-                        <include>org/apache/curator/**</include>
+                        <include>com.atscale.engine.curator/**</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -808,7 +808,7 @@
                     <failOnError>false</failOnError>
                     <logResults>true</logResults>
                     <includes>
-                        <include>org/apache/curator/**</include>
+                        <include>com.atscale.engine.curator/**</include>
                     </includes>
                 </configuration>
                 <executions>
@@ -836,7 +836,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.google</pattern>
-                                    <shadedPattern>org.apache.curator.shaded.com.google</shadedPattern>
+                                    <shadedPattern>com.atscale.engine.curator.shaded.com.google</shadedPattern>
                                     <excludes>
                                         <exclude>com.google.common.base.Function</exclude>
                                         <exclude>com.google.common.base.Predicate</exclude>
