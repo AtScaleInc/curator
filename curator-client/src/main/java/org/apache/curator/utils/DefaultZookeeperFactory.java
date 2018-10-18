@@ -26,6 +26,10 @@ public class DefaultZookeeperFactory implements ZookeeperFactory
     @Override
     public ZooKeeper newZooKeeper(String connectString, int sessionTimeout, Watcher watcher, boolean canBeReadOnly) throws Exception
     {
-        return new ZooKeeper(connectString, sessionTimeout, watcher, canBeReadOnly);
+        return newZooKeeper(connectString, sessionTimeout, watcher, canBeReadOnly, true);
+    }
+    public ZooKeeper newZooKeeper(String connectString, int sessionTimeout, Watcher watcher, boolean canBeReadOnly, boolean useZooKeeperSaslClient) throws Exception
+    {
+        return new ZooKeeper(connectString, sessionTimeout, watcher, canBeReadOnly, useZooKeeperSaslClient);
     }
 }

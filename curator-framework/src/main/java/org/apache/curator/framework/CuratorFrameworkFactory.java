@@ -134,6 +134,7 @@ public class CuratorFrameworkFactory
         private ACLProvider aclProvider = DEFAULT_ACL_PROVIDER;
         private boolean canBeReadOnly = false;
         private boolean useContainerParentsIfAvailable = true;
+        private boolean useZooKeeperSaslClient = true;
 
         /**
          * Apply the current values and build a new CuratorFramework
@@ -361,6 +362,17 @@ public class CuratorFrameworkFactory
             return this;
         }
 
+        /**
+         * Support per instance bypass of ZooKeepers zookeeper.sasl.client property
+         *
+         * @return this
+         */
+        public Builder dontUseZooKeeperSaslClient()
+        {
+            this.useZooKeeperSaslClient = false;
+            return this;
+        }
+
         public ACLProvider getAclProvider()
         {
             return aclProvider;
@@ -414,6 +426,11 @@ public class CuratorFrameworkFactory
         public boolean useContainerParentsIfAvailable()
         {
             return useContainerParentsIfAvailable;
+        }
+
+        public boolean useZooKeeperSaslClient()
+        {
+            return useZooKeeperSaslClient;
         }
 
         @Deprecated

@@ -31,6 +31,7 @@ class HandleHolder
     private final EnsembleProvider ensembleProvider;
     private final int sessionTimeout;
     private final boolean canBeReadOnly;
+    private final boolean useZooKeeperSaslClient;
 
     private volatile Helper helper;
 
@@ -91,7 +92,7 @@ class HandleHolder
                     if ( zooKeeperHandle == null )
                     {
                         connectionString = ensembleProvider.getConnectionString();
-                        zooKeeperHandle = zookeeperFactory.newZooKeeper(connectionString, sessionTimeout, watcher, canBeReadOnly);
+                        zooKeeperHandle = zookeeperFactory.newZooKeeper(connectionString, sessionTimeout, watcher, canBeReadOnly, useZooKeeperSaslClient);
                     }
 
                     helper = new Helper()
