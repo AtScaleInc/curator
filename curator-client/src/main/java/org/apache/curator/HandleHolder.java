@@ -20,6 +20,7 @@ package org.apache.curator;
 
 import org.apache.curator.ensemble.EnsembleProvider;
 import org.apache.curator.utils.ZookeeperFactory;
+import org.apache.curator.utils.DefaultZookeeperFactory;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
@@ -44,11 +45,17 @@ class HandleHolder
 
     HandleHolder(ZookeeperFactory zookeeperFactory, Watcher watcher, EnsembleProvider ensembleProvider, int sessionTimeout, boolean canBeReadOnly)
     {
+        this(zookeeperFactory, watcher, ensembleProvider, sessionTimeout, canBeReadOnly, true);
+    }
+
+    HandleHolder(ZookeeperFactory zookeeperFactory, Watcher watcher, EnsembleProvider ensembleProvider, int sessionTimeout, boolean canBeReadOnly, boolean useZooKeeperSaslClient)
+    {
         this.zookeeperFactory = zookeeperFactory;
         this.watcher = watcher;
         this.ensembleProvider = ensembleProvider;
         this.sessionTimeout = sessionTimeout;
         this.canBeReadOnly = canBeReadOnly;
+        this.useZooKeeperSaslClient = useZooKeeperSaslClient;
     }
 
     ZooKeeper getZooKeeper() throws Exception
@@ -92,7 +99,12 @@ class HandleHolder
                     if ( zooKeeperHandle == null )
                     {
                         connectionString = ensembleProvider.getConnectionString();
-                        zooKeeperHandle = zookeeperFactory.newZooKeeper(connectionString, sessionTimeout, watcher, canBeReadOnly, useZooKeeperSaslClient);
+                        if (zookeeperFactory instanceof DefaultZookeeperFactory) { 
+			  DefaultZookeeperFactory defaultZookeeperFactory = (DefaultZookeeperFactory)zookeeperFactory;
+                          zooKeeperHandle = defaultZookeeperFactory.newZooKeeper(connectionString, sessionTimeout, watcher, canBeReadOnly, useZooKeeperSaslClient);
+                        } else {
+                          zooKeeperHandle = zookeeperFactory.newZooKeeper(connectionString, sessionTimeout, watcher, canBeReadOnly);
+                        }
                     }
 
                     helper = new Helper()
