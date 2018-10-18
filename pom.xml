@@ -123,10 +123,11 @@
     </ciManagement>
 
     <distributionManagement>
-        <site>
-            <id>apache.website.svnpub</id>
-            <url>scm:svn:https://svn.apache.org/repos/asf/curator/site/trunk</url>
-        </site>
+        <repository>
+            <id>atscale</id>
+            <name>atscale-releases</name>
+            <url>http://artifactory.corp.atscale.com/release-local</url>
+        </repository>
     </distributionManagement>
 
     <mailingLists>
