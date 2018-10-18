@@ -826,4 +826,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+      <repository>
+        <id>atscale</id>
+        <name>AtScale Release</name>
+        <url>http://artifactory.infra.atscale.com/release-local</url>
+      </repository>
+    </repositories>
 </project>
