@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>apache-curator</artifactId>
-        <groupId>org.apache.curator</groupId>
+        <groupId>com.atscale.engine.curator</groupId>
         <version>4.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -47,7 +47,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.curator</groupId>
+            <groupId>com.atscale.engine.curator</groupId>
             <artifactId>curator-test</artifactId>
             <version>2.12.0</version>
             <exclusions>
@@ -60,7 +60,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.curator</groupId>
+            <groupId>com.atscale.engine.curator</groupId>
             <artifactId>curator-framework</artifactId>
             <exclusions>
                 <exclusion>
@@ -72,7 +72,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.curator</groupId>
+            <groupId>com.atscale.engine.curator</groupId>
             <artifactId>curator-framework</artifactId>
             <exclusions>
                 <exclusion>
@@ -85,7 +85,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.curator</groupId>
+            <groupId>com.atscale.engine.curator</groupId>
             <artifactId>curator-recipes</artifactId>
             <exclusions>
                 <exclusion>
@@ -97,7 +97,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.curator</groupId>
+            <groupId>com.atscale.engine.curator</groupId>
             <artifactId>curator-recipes</artifactId>
             <exclusions>
                 <exclusion>
@@ -165,8 +165,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <dependenciesToScan>
-                        <dependency>org.apache.curator:curator-framework</dependency>
-                        <dependency>org.apache.curator:curator-recipes</dependency>
+                        <dependency>com.atscale.engine.curator:curator-framework</dependency>
+                        <dependency>com.atscale.engine.curator:curator-recipes</dependency>
                     </dependenciesToScan>
                 </configuration>
             </plugin>
@@ -182,10 +182,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/generated-test-sources/test-annotations/org/apache/curator/test/compatibility</outputDirectory>
+                            <outputDirectory>${basedir}/target/generated-test-sources/test-annotations/com.atscale.engine.curator/test/compatibility</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>../curator-test/src/main/java/org/apache/curator/test/compatibility</directory>
+                                    <directory>../curator-test/src/main/java/com.atscale.engine.curator/test/compatibility</directory>
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>
