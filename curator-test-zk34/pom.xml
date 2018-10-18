@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.zookeeper</groupId>
+            <groupId>com.atscale.engine.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>${zookeeper-34-version}</version>
             <exclusions>
@@ -52,7 +52,7 @@
             <version>2.12.0</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
+                    <groupId>com.atscale.engine.zookeeper</groupId>
                     <artifactId>zookeeper</artifactId>
                 </exclusion>
             </exclusions>
@@ -64,7 +64,7 @@
             <artifactId>curator-framework</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
+                    <groupId>com.atscale.engine.zookeeper</groupId>
                     <artifactId>zookeeper</artifactId>
                 </exclusion>
             </exclusions>
@@ -76,7 +76,7 @@
             <artifactId>curator-framework</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
+                    <groupId>com.atscale.engine.zookeeper</groupId>
                     <artifactId>zookeeper</artifactId>
                 </exclusion>
             </exclusions>
@@ -89,7 +89,7 @@
             <artifactId>curator-recipes</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
+                    <groupId>com.atscale.engine.zookeeper</groupId>
                     <artifactId>zookeeper</artifactId>
                 </exclusion>
             </exclusions>
@@ -101,7 +101,7 @@
             <artifactId>curator-recipes</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
+                    <groupId>com.atscale.engine.zookeeper</groupId>
                     <artifactId>zookeeper</artifactId>
                 </exclusion>
             </exclusions>
