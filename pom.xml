@@ -127,7 +127,7 @@
         <repository>
             <id>atscale</id>
             <name>atscale-releases</name>
-            <url>http://artifactory.corp.atscale.com/release-local</url>
+            <url>http://artifactory.infra.atscale.com/release-local</url>
         </repository>
     </distributionManagement>
 
