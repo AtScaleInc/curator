@@ -182,10 +182,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/generated-test-sources/test-annotations/com.atscale.engine.curator/test/compatibility</outputDirectory>
+                            <outputDirectory>${basedir}/target/generated-test-sources/test-annotations/org/apache/curator/test/compatibility</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>../curator-test/src/main/java/com.atscale.engine.curator/test/compatibility</directory>
+                                    <directory>../curator-test/src/main/java/org/apache/curator/test/compatibility</directory>
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>
