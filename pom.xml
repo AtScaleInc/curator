@@ -327,7 +327,6 @@
                 <groupId>com.atscale.engine.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${project.version}</version>
-                <type>test-jar</type>
             </dependency>
 
             <dependency>
