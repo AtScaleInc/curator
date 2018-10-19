@@ -110,7 +110,7 @@ public class CuratorFrameworkImpl implements CuratorFramework
                 CuratorEvent event = new CuratorEventImpl(CuratorFrameworkImpl.this, CuratorEventType.WATCHED, watchedEvent.getState().getIntValue(), unfixForNamespace(watchedEvent.getPath()), null, null, null, null, null, watchedEvent, null);
                 processEvent(event);
             }
-        }, builder.getRetryPolicy(), builder.canBeReadOnly());
+        }, builder.getRetryPolicy(), builder.canBeReadOnly(), builder.useZooKeeperSaslClient());
 
         listeners = new ListenerContainer<CuratorListener>();
         unhandledErrorListeners = new ListenerContainer<UnhandledErrorListener>();
@@ -123,6 +123,7 @@ public class CuratorFrameworkImpl implements CuratorFramework
         aclProvider = builder.getAclProvider();
         state = new AtomicReference<CuratorFrameworkState>(CuratorFrameworkState.LATENT);
         useContainerParentsIfAvailable = builder.useContainerParentsIfAvailable();
+        this.useZooKeeperSaslClient = builder.useZooKeeperSaslClient();
 
         byte[] builderDefaultData = builder.getDefaultData();
         defaultData = (builderDefaultData != null) ? Arrays.copyOf(builderDefaultData, builderDefaultData.length) : new byte[0];

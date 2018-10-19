@@ -62,6 +62,11 @@ class ConnectionState implements Watcher, Closeable
 
     ConnectionState(ZookeeperFactory zookeeperFactory, EnsembleProvider ensembleProvider, int sessionTimeoutMs, int connectionTimeoutMs, Watcher parentWatcher, AtomicReference<TracerDriver> tracer, boolean canBeReadOnly)
     {
+        this(zookeeperFactory, ensembleProvider, sessionTimeoutMs, connectionTimeoutMs, parentWatcher, tracer, canBeReadOnly, true);
+    }
+
+    ConnectionState(ZookeeperFactory zookeeperFactory, EnsembleProvider ensembleProvider, int sessionTimeoutMs, int connectionTimeoutMs, Watcher parentWatcher, AtomicReference<TracerDriver> tracer, boolean canBeReadOnly, boolean useZooKeeperSaslClient)
+    {
         this.ensembleProvider = ensembleProvider;
         this.sessionTimeoutMs = sessionTimeoutMs;
         this.connectionTimeoutMs = connectionTimeoutMs;
@@ -71,7 +76,7 @@ class ConnectionState implements Watcher, Closeable
             parentWatchers.offer(parentWatcher);
         }
 
-        zooKeeper = new HandleHolder(zookeeperFactory, this, ensembleProvider, sessionTimeoutMs, canBeReadOnly);
+        zooKeeper = new HandleHolder(zookeeperFactory, this, ensembleProvider, sessionTimeoutMs, canBeReadOnly, useZooKeeperSaslClient);
     }
 
     ZooKeeper getZooKeeper() throws Exception
