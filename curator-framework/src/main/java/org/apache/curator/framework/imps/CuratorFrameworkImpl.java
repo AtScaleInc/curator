@@ -43,6 +43,7 @@ import org.apache.curator.utils.EnsurePath;
 import org.apache.curator.utils.ThreadUtils;
 import org.apache.curator.utils.ZKPaths;
 import org.apache.curator.utils.ZookeeperFactory;
+import org.apache.curator.utils.DefaultZookeeperFactory;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
@@ -80,6 +81,7 @@ public class CuratorFrameworkImpl implements CuratorFramework
     private final NamespaceFacadeCache namespaceFacadeCache;
     private final NamespaceWatcherMap namespaceWatcherMap = new NamespaceWatcherMap(this);
     private final boolean useContainerParentsIfAvailable;
+    private boolean useZooKeeperSaslClient = true;
 
     private volatile ExecutorService executorService;
     private final AtomicBoolean logAsErrorConnectionErrors = new AtomicBoolean(false);
@@ -147,7 +149,15 @@ public class CuratorFrameworkImpl implements CuratorFramework
             @Override
             public ZooKeeper newZooKeeper(String connectString, int sessionTimeout, Watcher watcher, boolean canBeReadOnly) throws Exception
             {
-                ZooKeeper zooKeeper = actualZookeeperFactory.newZooKeeper(connectString, sessionTimeout, watcher, canBeReadOnly);
+                ZooKeeper zooKeeper;
+
+		if (actualZookeeperFactory instanceof DefaultZookeeperFactory) {
+		    DefaultZookeeperFactory defaultZookeeperFactory = (DefaultZookeeperFactory)actualZookeeperFactory;
+                    zooKeeper = defaultZookeeperFactory.newZooKeeper(connectString, sessionTimeout, watcher, canBeReadOnly, useZooKeeperSaslClient);
+		} else {
+                   zooKeeper = actualZookeeperFactory.newZooKeeper(connectString, sessionTimeout, watcher, canBeReadOnly);
+		}
+
                 for ( AuthInfo auth : authInfos )
                 {
                     zooKeeper.addAuthInfo(auth.getScheme(), auth.getAuth());
