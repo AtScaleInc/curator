@@ -511,7 +511,7 @@
                 <artifactId>clirr-maven-plugin</artifactId>
                 <configuration>
                     <includes>
-                        <include>com.atscale.engine.curator/**</include>
+                        <include>org/apache/curator/**</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -772,7 +772,7 @@
                     <failOnError>false</failOnError>
                     <logResults>true</logResults>
                     <includes>
-                        <include>com.atscale.engine.curator/**</include>
+                        <include>org/apache/curator/**</include>
                     </includes>
                 </configuration>
                 <executions>
@@ -800,7 +800,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.google</pattern>
-                                    <shadedPattern>com.atscale.engine.curator.shaded.com.google</shadedPattern>
+                                    <shadedPattern>org.apache.curator.shaded.com.google</shadedPattern>
                                     <excludes>
                                         <exclude>com.google.common.base.Function</exclude>
                                         <exclude>com.google.common.base.Predicate</exclude>

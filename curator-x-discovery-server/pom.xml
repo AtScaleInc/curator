@@ -40,7 +40,7 @@
             *
         </osgi.import.package>
         <osgi.export.package>
-            com.atscale.engine.curator.x.discovery.server*;version="${project.version}";-noimport:=true
+            org.apache.curator.x.discovery.server*;version="${project.version}";-noimport:=true
         </osgi.export.package>
     </properties>
 

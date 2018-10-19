@@ -84,11 +84,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.google</pattern>
-                                    <shadedPattern>com.atscale.engine.curator-test.shaded.com.google</shadedPattern>
+                                    <shadedPattern>org.apache.curator-test.shaded.com.google</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>com.google</pattern>
-                                    <shadedPattern>com.atscale.engine.curator-test.shaded.com.google</shadedPattern>
+                                    <shadedPattern>org.apache.curator-test.shaded.com.google</shadedPattern>
                                     <includes>
                                         <include>com.google.common.base.Function</include>
                                         <include>com.google.common.base.Predicate</include>
